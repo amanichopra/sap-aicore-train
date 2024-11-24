@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "Pose Detection"
   labels:
     scenarios.ai.sap.com/id: "train-demo"
-    ai.sap.com/version: "1.1"
+    ai.sap.com/version: "1.2"
 spec:
   imagePullSecrets:
     - name: secret # your docker registry secret
