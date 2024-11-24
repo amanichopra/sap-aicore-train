@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: aicore-train-pipeline # executable id, must be unique across all your workflows (YAML files), please modify this to any value (e.g. code-pipeline-12345) if you are not the only user of your SAP AI Core instance.
+  annotations:
+    scenarios.ai.sap.com/description: "SAP AI Core training demo"
+    scenarios.ai.sap.com/name: "Training Demo"
+    executables.ai.sap.com/description: "Trains model on pose detection."
+    executables.ai.sap.com/name: "Pose Detection"
+  labels:
+    scenarios.ai.sap.com/id: "train-demo"
+    ai.sap.com/version: "1.0"
+spec:
+  entrypoint: training-pipeline
+  templates:
+  - name: training-pipeline
+    steps:
+    - - name: trainer
+        template: trainer
+
+  - name: trainer
+    container:
+      image: amanichopra/aicore-train:latest # Your docker image name
+      args:
+        - "echo Hello from AI Core"
