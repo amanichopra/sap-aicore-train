@@ -11,6 +11,8 @@ metadata:
     scenarios.ai.sap.com/id: "train-demo"
     ai.sap.com/version: "1.1"
 spec:
+  imagePullSecrets:
+    - name: secret # your docker registry secret
   entrypoint: training-pipeline
   templates:
   - name: training-pipeline
