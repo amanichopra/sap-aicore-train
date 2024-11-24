@@ -21,10 +21,12 @@ spec:
         template: trainer
 
   - name: trainer
+  
     metadata:
       labels:
         ai.sap.com/resourcePlan: basic
     container:
       image: docker.io/amanichopra/aicore-train:latest # Your docker image name
+      command: ["/bin/sh", "-c"]
       args:
         - "echo Hello from AI Core"
