@@ -30,7 +30,7 @@ spec:
     inputs:
       artifacts:
         - name: pose_embeddings_dataset
-          path: /app/data
+          path: /app/data/
     container:
       image: docker.io/amanichopra/aicore-train:latest # Your docker image name
       command: ["/bin/sh", "-c"]

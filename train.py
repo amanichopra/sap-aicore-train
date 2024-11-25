@@ -8,6 +8,7 @@ import pickle
 DATA_PATH = '/app/data/train.csv'
 DT_MAX_DEPTH= int(os.getenv('DT_MAX_DEPTH'))
 MODEL_PATH = '/app/model/model.pkl'
+print(f"lsitdir: {os.listdir('/app/data/')}")
 #
 # Load Datasets
 df = pd.read_csv(DATA_PATH)

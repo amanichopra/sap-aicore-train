@@ -1,10 +1,15 @@
 FROM python:3.12-slim
 
-ENV HOME=/root
+# Creates directory within your Docker image
+RUN mkdir -p /app/src/
+# Don't place anything in below folders yet, just create them
+RUN mkdir -p /app/data/
+RUN mkdir -p /app/model/
 
-WORKDIR /app/src/
-COPY train.py requirements.txt ./
-RUN pip3 install -r requirements.txt
+COPY train.py requirements.txt /app/src/
+RUN pip3 install -r /app/src/requirements.txt
 
-WORKDIR $HOME
+# Enable permission to execute anything inside the folder app
+RUN chgrp -R 65534 /app && \
+    chmod -R 777 /app
 
