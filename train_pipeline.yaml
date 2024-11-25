@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "Pose Detection"
   labels:
     scenarios.ai.sap.com/id: "train-demo"
-    ai.sap.com/version: "1.5"
+    ai.sap.com/version: "1.6"
 spec:
   imagePullSecrets:
     - name: secret # your docker registry secret
@@ -38,4 +38,4 @@ spec:
         - name: DT_MAX_DEPTH
           value: "{{workflow.parameters.DT_MAX_DEPTH}}"
       args:
-        - "python train.py"
+        - "python /app/src/train.py"

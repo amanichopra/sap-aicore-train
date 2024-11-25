@@ -30,4 +30,4 @@ test_r2_score = clf.score(test_x, test_y)
 print(f"Test Data Score {test_r2_score}")
 #
 # Save model
-pickle.dump(clf, open(MODEL_PATH, 'wb'))
+#pickle.dump(clf, open(MODEL_PATH, 'wb'))
