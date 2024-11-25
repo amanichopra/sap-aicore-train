@@ -14,6 +14,9 @@ spec:
   imagePullSecrets:
     - name: secret # your docker registry secret
   entrypoint: training-pipeline
+  arguments:
+    parameters: # placeholder for string like inputs
+        - name: DT_MAX_DEPTH # identifier local to this workflow
   templates:
   - name: training-pipeline
     steps:
@@ -33,6 +36,6 @@ spec:
       command: ["/bin/sh", "-c"]
       env:
         - name: DT_MAX_DEPTH
-          value: 3
+          value: "{{workflow.parameters.DT_MAX_DEPTH}}"
       args:
         - "python ./app/src/train.py"
