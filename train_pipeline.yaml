@@ -38,4 +38,4 @@ spec:
         - name: DT_MAX_DEPTH
           value: "{{workflow.parameters.DT_MAX_DEPTH}}"
       args:
-        - "python ./app/src/train.py"
+        - "python train.py"
