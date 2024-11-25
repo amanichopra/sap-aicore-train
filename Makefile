@@ -13,8 +13,7 @@ push-docker-image:
 
 deploy-container-service-local:
 	docker build . -t amanichopra/aicore-train:local --platform linux/amd64
-	docker run -it amanichopra/aicore-train:local
-
+	docker run -it --entrypoint /bin/bash amanichopra/aicore-train:local
 
 export-env:
 	export $(grep -v '^#' .env | xargs)

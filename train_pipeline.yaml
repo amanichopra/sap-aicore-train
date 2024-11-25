@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "Pose Detection"
   labels:
     scenarios.ai.sap.com/id: "train-demo"
-    ai.sap.com/version: "1.3"
+    ai.sap.com/version: "1.4"
 spec:
   imagePullSecrets:
     - name: secret # your docker registry secret
@@ -21,12 +21,18 @@ spec:
         template: trainer
 
   - name: trainer
-  
     metadata:
       labels:
         ai.sap.com/resourcePlan: basic
+    inputs:
+      artifacts:
+        - name: pose_embeddings_dataset
+          path: /app/data
     container:
       image: docker.io/amanichopra/aicore-train:latest # Your docker image name
       command: ["/bin/sh", "-c"]
+      env:
+        - name: DT_MAX_DEPTH
+          value: 3
       args:
-        - "echo Hello from AI Core"
+        - "python ./app/src/train.py"
