@@ -15,14 +15,15 @@ print(f'CUDA AVAIL: {torch.cuda.is_available()}')
 
 # Variables
 DATA_PATH = os.getenv('DATA_PATH', '/app/data/pose_embeddings.csv')
-print(f'DIRRR: {os.listdir("/app/data/")}')
 METADATA_PATH = os.getenv('METADATA_PATH', '/app/data/metadata.csv')
 EPOCHS = int(os.getenv('EPOCHS', 1))
 OPTIMIZER = os.getenv('OPTIMIZER', 'adam')
 LR = float(os.getenv('LR', 0.005))
 DROPOUT = float(os.getenv('DROPOUT', 0.5))
 ACTIVATION = os.getenv('ACTIVATION', 'relu')
-LOG_METRICS = int(os.getenv('LOG', 0))
+LOG_METRICS = int(os.getenv('LOG_METRICS', 0))
+if LOG_METRICS:
+    print('Logging metrics!')
 DL_BATCH_SIZE = int(os.getenv('DL_BATCH_SIZE', 16))
 
 MODEL_PATH = os.getenv('MODEL_PATH', '/app/model/best_model')
@@ -78,7 +79,8 @@ if LOG_METRICS:
     )
 
  # train
+print(f'Training model for {EPOCHS} epochs...')
 model = train(X_train, y_train_dummy, X_val, y_val_dummy, DEVICE, EPOCHS, DROPOUT, ACTIVATION, OPTIMIZER, LR, DL_BATCH_SIZE, aic_connection=aic_connection)
-
+print(f'Training complete!')
 # Save model
 torch.save(model, MODEL_PATH)
