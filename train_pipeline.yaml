@@ -17,6 +17,8 @@ spec:
   arguments:
     parameters: # placeholder for string like inputs
         - name: DT_MAX_DEPTH # identifier local to this workflow
+        - name: MAX_FEATURES
+        - name: MIN_SAMPLES_SPLIT
   templates:
   - name: training-pipeline
     steps:
@@ -26,7 +28,7 @@ spec:
   - name: trainer
     metadata:
       labels:
-        ai.sap.com/resourcePlan: basic
+        ai.sap.com/resourcePlan: infer.s
     inputs:
       artifacts:
         - name: house_dataset
@@ -46,5 +48,9 @@ spec:
       env:
         - name: DT_MAX_DEPTH
           value: "{{workflow.parameters.DT_MAX_DEPTH}}"
+        - name: MAX_FEATURES
+          value: "{{workflow.parameters.MAX_FEATURES}}"
+        - name: MIN_SAMPLES_SPLIT
+          value: "{{workflow.parameters.MIN_SAMPLES_SPLIT}}"
       args:
         - "python /app/src/train.py"
