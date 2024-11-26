@@ -53,5 +53,7 @@ spec:
           value: "{{workflow.parameters.MAX_FEATURES}}"
         - name: MIN_SAMPLES_SPLIT
           value: "{{workflow.parameters.MIN_SAMPLES_SPLIT}}"
+        - name: LOG_METRICS
+          value: 1
       args:
         - "python /app/src/train_movenet.py"

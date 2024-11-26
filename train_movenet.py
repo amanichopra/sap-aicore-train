@@ -15,6 +15,7 @@ print(f'CUDA AVAIL: {torch.cuda.is_available()}')
 
 # Variables
 DATA_PATH = os.getenv('DATA_PATH', '/app/data/pose_embeddings.csv')
+print(f'DIRRR: {os.listdir("/app/data/")}')
 METADATA_PATH = os.getenv('METADATA_PATH', '/app/data/metadata.csv')
 EPOCHS = int(os.getenv('EPOCHS', 1))
 OPTIMIZER = os.getenv('OPTIMIZER', 'adam')
