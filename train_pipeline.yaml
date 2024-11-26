@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "training"
   labels:
     scenarios.ai.sap.com/id: "train-demo"
-    ai.sap.com/version: "1.7"
+    ai.sap.com/version: "1.8"
 spec:
   imagePullSecrets:
     - name: secret # your docker registry secret
@@ -28,11 +28,12 @@ spec:
   - name: trainer
     metadata:
       labels:
-        ai.sap.com/resourcePlan: infer.s
+        ai.sap.com/resourcePlan: train.l
     inputs:
       artifacts:
         - name: house_dataset
           path: /app/data/
+      
     outputs:
       artifacts: 
         - name: house_model
@@ -53,4 +54,4 @@ spec:
         - name: MIN_SAMPLES_SPLIT
           value: "{{workflow.parameters.MIN_SAMPLES_SPLIT}}"
       args:
-        - "python /app/src/train.py"
+        - "python /app/src/train_movenet.py"

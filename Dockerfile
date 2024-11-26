@@ -6,7 +6,7 @@ RUN mkdir -p /app/src/
 RUN mkdir -p /app/data/
 RUN mkdir -p /app/model/
 
-COPY train.py requirements.txt /app/src/
+COPY train.py train_movenet.py model_utils.py preprocessing_utils.py requirements.txt /app/src/
 RUN pip3 install -r /app/src/requirements.txt
 
 # Enable permission to execute anything inside the folder app

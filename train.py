@@ -8,8 +8,9 @@ from ai_core_sdk.models import Metric, MetricTag, MetricCustomInfo, MetricLabel
 from ai_core_sdk.tracking import Tracking
 import pickle
 import torch
-print(torch.__version__)
-print(torch.cuda.is_available())
+
+print(f'TORCH VERSION: {torch.__version__}')
+print(f'CUDA AVAIL: {torch.cuda.is_available()}')
 
 #
 # Logging Metrics: SAP AI Core connection (Step 2)
