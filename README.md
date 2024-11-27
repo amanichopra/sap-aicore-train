@@ -2,6 +2,8 @@
 
 This track introduces you to using AI Core to deploy your own custom training workflows. We will train a simple neural network to classify yoga poses given an input image. We will use a dataset called [Yoga-82](https://sites.google.com/view/yoga-82/home) that has images and labels for 82 different yoga poses. The images are first converted to pose embeddings using a pose detection model called [MoveNet](https://www.tensorflow.org/hub/tutorials/movenet). The model takes an input image and outputs a 17-dimensional vector representing the locations of 17 keypoints of the body. After generating the MoveNet pose embeddings, we will pass these into a simple 4-layer feed-forward network (defined in `model_utils.py`) to classify the pose embedding into 1 of the 82 yoga pose labels. The preprocessing of generating MoveNet embeddings is already done for you, and the data is located in `data/pose_embeddings.csv`. There is also metadata containing the labels and statistics about the image's pixel values (located in `data/metadata.csv`). An example of inference on a video is located in `model/inference.mp4`.
 
+**Note: This tutorial is inspired by [this](https://developers.sap.com/tutorials/ai-core-code..html) SAP Learning resource.**
+
 ### Prerequisites
 
 1. Follow [this](https://developers.sap.com/tutorials/hcp-create-trial-account..html
