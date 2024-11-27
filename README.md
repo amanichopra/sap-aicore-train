@@ -15,3 +15,7 @@ This track introduces you to using AI Core to deploy your own custom training wo
 ### Deploying a Training Workflow
 
 Open the notebook `deploy_training_workflow.ipynb` and follow the steps.
+
+### Postman Collections to Use AI Core via API
+
+You can also access AI Core via API using the Postman collection [here](aicore_postman_collection.json). 
