@@ -12,7 +12,7 @@ metadata:
     ai.sap.com/version: "2.0"
 spec:
   imagePullSecrets:
-    - name: secret # your docker registry secret
+    - name: docker-secret # your docker registry secret
   entrypoint: training-pipeline
   arguments:
     parameters: # placeholder for string like inputs
@@ -31,7 +31,7 @@ spec:
   - name: trainer
     metadata:
       labels:
-        ai.sap.com/resourcePlan: train.l
+        ai.sap.com/resourcePlan: train.starter
     inputs:
       artifacts:
         - name: pose_dataset

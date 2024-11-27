@@ -16,7 +16,7 @@ print(f'CUDA AVAIL: {torch.cuda.is_available()}')
 # Variables
 DATA_PATH = os.getenv('DATA_PATH', '/app/data/pose_embeddings.csv')
 METADATA_PATH = os.getenv('METADATA_PATH', '/app/data/metadata.csv')
-EPOCHS = int(os.getenv('EPOCHS', 1))
+EPOCHS = int(os.getenv('EPOCHS', 5))
 OPTIMIZER = os.getenv('OPTIMIZER', 'adam')
 LR = float(os.getenv('LR', 0.005))
 DROPOUT = float(os.getenv('DROPOUT', 0.5))
@@ -73,8 +73,8 @@ with open(LB_PATH, 'wb') as f:
 if LOG_METRICS:
     aic_connection.log_metrics(
         metrics = [
-            Metric(name= "n_train_samples", value=float(X_train.shape[0]), timestamp=datetime.datetime.now(datetime.timezone.utc)),
-            Metric(name= "device", value=DEVICE, timestamp=datetime.datetime.now(datetime.timezone.utc)),
+            Metric(name="n_train_samples", value=float(X_train.shape[0]), timestamp=datetime.datetime.now(datetime.timezone.utc)),
+            Metric(name="n_val_samples", value=float(X_val.shape[0]), timestamp=datetime.datetime.now(datetime.timezone.utc)),
         ]
     )
 
