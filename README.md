@@ -18,4 +18,4 @@ Open the notebook `deploy_training_workflow.ipynb` and follow the steps.
 
 ### Postman Collections to Use AI Core via API
 
-You can also access AI Core via API using the Postman collection [here](aicore_postman_collection.json). 
+You can also access AI Core via API using the Postman collection [here](./postman/aicore_postman_collection.json). 
